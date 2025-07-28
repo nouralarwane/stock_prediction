@@ -11,3 +11,4 @@ class RegisterView(generics.CreateAPIView):
     permission_classes = [AllowAny]
 
 
+

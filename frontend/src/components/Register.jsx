@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import axios from "axios"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 
 const Register = () => {
     const [username, setusername] = useState("")
@@ -62,9 +64,9 @@ const Register = () => {
                         {success && <div className='alert alert-success'>Registration Successful</div>}
 
                         {Loading ? (
-                        <button type='submit' className='btn btn-success d-block mx-auto' disabled>Please Wait...</button>
+                        <button type='submit' className='btn btn-success d-block mx-auto' disabled><FontAwesomeIcon icon={faSpinner} spin />Please Wait...</button>
 
-                        ) : (
+                        ) : ( 
                         <button type='submit' className='btn btn-success d-block mx-auto'>Register</button>
 
                         )}
