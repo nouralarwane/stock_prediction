@@ -25,7 +25,8 @@ const Login = () => {
       const response = await axios.post("http://127.0.0.1:8000/api/v1/token/", userData)
       localStorage.setItem("accessToken", response.data.access)
       localStorage.setItem("refreshToken", response.data.refresh)
-      navigate("/")
+      console.log(response.data);
+      navigate("/dashboard")
       setIsLoggedIn(true)
     } 
     catch (error) {

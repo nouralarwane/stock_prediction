@@ -7,26 +7,32 @@ const Header = () => {
 
   const {IsLoggedIn, setIsLoggedIn} = useContext(AuthContext)
   const navigate = useNavigate()
+
   const handleLogout = () => {
+    
     localStorage.removeItem("accessToken")
     localStorage.removeItem("refreshToken")
     setIsLoggedIn(false)
     navigate("/")
 
-
   }
 
   return (
     <>
-       <nav className='navbar container pt-3 pb-3 align-items-start'>
+       <nav className='navbar container text-light pt-3 pb-3 align-items-start'>
             <Link className='navbar-brand text-light' to="/">Stock Prediction Portal</Link>
  
             <div>
-              {IsLoggedIn ? <button onClick={handleLogout} className='text-light btn btn-danger'>Logout</button> : 
-              
+              {IsLoggedIn ? 
+                  <>
+                    <Button text="Dashboard" class="btn-info" url="/dashboard" />
+                      &nbsp;
+                    <button onClick={handleLogout} className='text-light btn btn-danger'>Logout</button> 
+                  
+                  </> :
                 (
                   <>
-                       <Button text="Login" class="btn-outline-info" url="/login"/>
+                      <Button text="Login" class="btn-outline-info" url="/login"/>
                       &nbsp;
                       <Button text="Register" class="btn-info" url="/register" />
 
